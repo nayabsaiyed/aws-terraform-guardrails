@@ -1,0 +1,25 @@
+tests/guardrails.tftest.hcl... in progress
+  run "isolated_network_defaults"... pass
+  run "artifact_storage_controls"... pass
+  run "immutable_repository_environment_trust"... pass
+  run "classic_repository_trust"... pass
+  run "publisher_permissions_are_prefix_scoped"... pass
+  run "smallest_vpc_boundary"... pass
+  run "largest_vpc_boundary"... pass
+tests/guardrails.tftest.hcl... tearing down
+tests/guardrails.tftest.hcl... pass
+tests/inputs.tftest.hcl... in progress
+  run "reject_overbroad_vpc"... pass
+  run "reject_public_vpc"... pass
+  run "reject_noncanonical_vpc"... pass
+  run "reject_too_small_vpc"... pass
+  run "reject_duplicate_zones"... pass
+  run "reject_wrong_region_zones"... pass
+  run "reject_wildcard_repository"... pass
+  run "reject_partial_immutable_ids"... pass
+  run "reject_environment_subject_injection"... pass
+  run "reject_other_oidc_issuer"... pass
+tests/inputs.tftest.hcl... tearing down
+tests/inputs.tftest.hcl... pass
+
+Success! 17 passed, 0 failed.

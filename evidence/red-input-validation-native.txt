@@ -1,0 +1,23 @@
+tests/inputs.tftest.hcl... in progress
+  run "reject_overbroad_vpc"... fail
+
+Error: Missing expected failure
+
+  on tests/inputs.tftest.hcl line 18, in run "reject_overbroad_vpc":
+  18:   expect_failures = [var.vpc_cidr]
+
+The checkable object, var.vpc_cidr, was expected to report an error but did
+not.
+  run "reject_public_vpc"... skip
+  run "reject_noncanonical_vpc"... skip
+  run "reject_too_small_vpc"... skip
+  run "reject_duplicate_zones"... skip
+  run "reject_wrong_region_zones"... skip
+  run "reject_wildcard_repository"... skip
+  run "reject_partial_immutable_ids"... skip
+  run "reject_environment_subject_injection"... skip
+  run "reject_other_oidc_issuer"... skip
+tests/inputs.tftest.hcl... tearing down
+tests/inputs.tftest.hcl... fail
+
+Failure! 0 passed, 1 failed, 9 skipped.

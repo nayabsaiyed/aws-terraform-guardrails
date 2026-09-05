@@ -1,0 +1,18 @@
+# Synthetic identifiers. Replace with YOUR account, repository and actual IDs.
+# Get IDs with: gh api repos/OWNER/REPO --jq '{owner_id: .owner.id, repository_id: .id}'
+name               = "guardrails-lab"
+region             = "us-east-1"
+vpc_cidr           = "10.42.0.0/20"
+availability_zones = ["us-east-1a", "us-east-1b"]
+
+github_oidc_provider_arn = "arn:aws:iam::123456789012:oidc-provider/token.actions.githubusercontent.com"
+github_repository = {
+  owner         = "example-org"
+  name          = "example-repo"
+  owner_id      = "123456"
+  repository_id = "789012"
+}
+github_environment = "production"
+
+# Only for a repository verified to use classic OIDC subjects: omit BOTH IDs.
+# github_repository = { owner = "example-org", name = "example-repo" }
