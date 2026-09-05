@@ -40,6 +40,15 @@ An initial x86 Terraform/provider run under emulation timed out starting the AWS
 provider. Repeating validation with the verified native ARM64 build succeeded.
 The native test results above are the verification evidence.
 
+## Hosted Linux validation
+
+The initial GitHub Actions run failed because the lockfile lacked a Linux content
+checksum. After generating it from the official signed provider package, the
+[real Terraform main workflow passed](https://github.com/nayabsaiyed/aws-terraform-guardrails/actions/runs/33969190159),
+including all 17 mocked tests. See the [failure, root cause and correction](linux-ci-lockfile-fix.md).
+This is Linux validation evidence in addition to the original macOS record; it
+is still credential-free and does not establish AWS deployment behavior.
+
 ## What these results do not establish
 
 - AWS-side IAM enforcement, STS authentication or S3 upload outcomes.
@@ -47,9 +56,7 @@ The native test results above are the verification evidence.
 - Account policies, quotas, region/AZ availability, CIDR overlap with live networks,
   or the configuration of the existing OIDC provider.
 - Compliance, penetration-test results, production readiness or customer outcomes.
-- A successful remote GitHub Actions run. The first hosted Linux run failed on
-  a missing platform content checksum; see the [failure and correction](linux-ci-lockfile-fix.md).
-  Hosted results remain separate from the original local evidence above.
+
 
 Mocked tests validate expressions and intended provider resource configuration.
 The [operator runbook](../docs/runbook.md) describes the independent live checks

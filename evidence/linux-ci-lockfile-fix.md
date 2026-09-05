@@ -27,8 +27,12 @@ h1:9cre7jh1lSs/9igpgAcENMUAUlYW3HCtkav3up4oit0=
 
 CI retains `-lockfile=readonly` and all formatting, schema validation, and mocked
 tests. No verification is bypassed, no provider version is changed, and no AWS
-account is used. Local ARM64 checks pass after the correction; a fresh hosted
-Terraform run on the corrected main commit is the remaining verification gate.
+account is used. Local ARM64 formatting, readonly initialization, validation and all 17 mocked
+tests passed after the correction. The real Linux amd64
+[Terraform main workflow passed](https://github.com/nayabsaiyed/aws-terraform-guardrails/actions/runs/33969190159)
+on fix commit `ebfcf190c54688daa44ea1728ef0bee97b4c5af8`, including
+readonly initialization, validation and **17 passed, 0 failed**. This was the
+`Terraform guardrails` workflow, not a Dependabot update job.
 
 For a provider update, generate and review supported-platform checksums before
 committing:
