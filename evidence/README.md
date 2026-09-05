@@ -47,8 +47,9 @@ The native test results above are the verification evidence.
 - Account policies, quotas, region/AZ availability, CIDR overlap with live networks,
   or the configuration of the existing OIDC provider.
 - Compliance, penetration-test results, production readiness or customer outcomes.
-- A remote GitHub Actions run. The checked-in workflow is ready for publication;
-  its run history becomes separate evidence after the repository is published.
+- A successful remote GitHub Actions run. The first hosted Linux run failed on
+  a missing platform content checksum; see the [failure and correction](linux-ci-lockfile-fix.md).
+  Hosted results remain separate from the original local evidence above.
 
 Mocked tests validate expressions and intended provider resource configuration.
 The [operator runbook](../docs/runbook.md) describes the independent live checks
